@@ -1,0 +1,62 @@
+<div id="wrapper">
+
+    <div id="leftBar" class="black z-depth-1-half" ng-controller="navigationBar">
+
+      <div id="logo" class="bold italic"><h2>LOGO</h2></div>
+
+      <div class="blue-grey darken-3" id="card">
+        <div id="cardMiniature"><img src="../img/miniature.jpg" id="miniature"></div>
+        <div id="cardContent">
+          <a ui-sref="home.profile"><h5>{{basicData[0].username}}</h5></a>
+          <p>Jakiś status</p>
+        </div>
+        <div id="cardNav">
+          <a ng-controller="logoutController" ng-click="logout()"><i class="material-icons small">power_settings_new</i>&nbsp;Wyloguj</a>
+        </div>
+        <div class="clear"></div>
+      </div>
+
+
+      <div class="navMenu">
+        <a ui-sref="home.profile">
+          <div class="navButton">
+            <span class="title size_1-half">MÓJ PROFIL</span>
+            <p class="navButtonSecondLine"><br>Zobacz lub edytuj swój profil</p>
+          </div>
+        </a>
+
+        <a ui-sref="home.trainings">
+          <div class="navButton">
+            <span class="title size_1-half">TRENINGI</span>
+            <p class="navButtonSecondLine"><br>Lista Twoich wszystkich treningów</p>
+          </div>
+        </a>
+
+        <a ui-sref="home.trnplan">
+          <div class="navButton">
+            <span class="title size_1-half">PLAN TRENINGOWY</span>
+            <p class="navButtonSecondLine"><br>Twój aktualny plan treningowy</p>
+          </div>
+        </a>
+
+        <a ui-sref="home.stats">
+          <div class="navButton">
+            <span class="title size_1-half">STATYSTYKI</span>
+            <p class="navButtonSecondLine"><br>Statystyki postępów</p>
+          </div>
+        </a>
+
+      </div>
+
+
+    </div>
+
+
+
+
+
+  <div id="mainContent" ui-view>
+    <h2>Witamy</h2><br/>
+    <hr>
+  </div>
+</div>

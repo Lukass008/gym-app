@@ -1,0 +1,32 @@
+<div class="containerStart">
+<h2>Zaloguj się lub <a ui-sref="start.register">zarejestruj</a></h2><br>
+
+<div class="loginForm" ng-controller="loginController">
+
+<form ng-submit="login()">
+
+  <div class="input-field">
+    <input ng-model='loginForm.username' class="validate" placeholder="E-mail"><br>
+  </div>
+
+  <div class="input-field">
+    <input type="password" ng-model='loginForm.password' class="" placeholder="Hasło"><br>
+  </div>
+  <div class="error">{{errorMessage}}</div>
+  <div class="btn-div"><button type="submit" class="orange darken-4 waves-effect waves-light btn" ng-disabled="disabled">Zaloguj się</button></div>
+    <div class="nextToButton">Nie masz konta? <a ui-sref="start.register">Zarejestruj się</a>
+    </div>
+  <div class="clear"></div>
+</form>
+</div>
+<div class="startList">
+<ul>
+  <li>stwórz własny profil sportowy</li>
+  <li>zapisuj swoje postępy i osiągnięcia</li>
+  <li>dopasuj swój plan treningowy</li>
+  <li>stwórz dopasowaną dietę</li>
+  <li>Zapisuj postępy przeglądaj swoje statystyki</li>
+  <li>dziel się swoimi osiągnięciami z innymi</li>
+</ul>
+</div>
+</div>

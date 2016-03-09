@@ -1,0 +1,146 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+#header {
+  height: 100px;
+  color: white;
+}
+#navigate {
+  position: absolute;
+  right: 20%;
+  bottom: 5px;
+  padding-top: 50px;
+}
+#navigate a {
+  color: white;
+}
+#navigate a :hover {
+  color: orange;
+}
+.containerStart {
+  padding-left: 15%;
+}
+.loginForm {
+  width: 500px;
+  margin-left: 6%;
+}
+.section {
+  position: relative;
+}
+.nextToButton {
+  padding: 5px 8px;
+  margin-top: 12px;
+  float: left;
+}
+.btn-div {
+  max-width: 100px;
+  width: auto;
+  margin-top: 10px;
+}
+.startList {
+  margin-top: 30px;
+}
+.startList ul > li {
+  margin-left: 15%;
+  font-size: 1.2em;
+  list-style-type: circle;
+  line-height: 2em;
+  font-style: italic;
+  opacity: 0.6;
+}
+#wrapper {
+  width: 100%;
+  position: relative;
+}
+#leftBar {
+  width: 20%;
+  height: 100%;
+  background-color: black;
+  position: fixed;
+  color: #ffffff;
+}
+#card {
+  margin-top: 20px;
+}
+#cardMiniature {
+  width: 30%;
+  float: left;
+  padding: 2%;
+  border-right: 3px solid #999999;
+}
+#cardMiniature img {
+  max-width: 96%;
+}
+#cardContent {
+  width: 66%;
+  padding-left: 4%;
+  float: left;
+}
+#cardContent a {
+  color: white;
+}
+#cardContent a :hover {
+  color: #039be5;
+}
+#cardNav {
+  padding-right: 4%;
+  float: left;
+  vertical-align: text-top;
+  font-size: 1.2em;
+  line-height: 20px;
+}
+#cardNav a:hover {
+  color: white;
+  cursor: pointer;
+}
+.navMenu {
+  margin-top: 60px;
+  width: 100%;
+  background-color: #111;
+  text-align: center;
+}
+.navButton {
+  display: block;
+  padding: 4%;
+  border-bottom: 1px solid #888;
+  border-top: 1px solid #888;
+}
+.navButton:hover {
+  background-color: #37474f;
+  color: #fff;
+}
+.navMenu > a:first-child {
+  border-top: 1px solid #888;
+}
+.navButtonSecondLine {
+  opacity: 0.5;
+  line-height: 3px;
+  margin-bottom: 4%;
+  color: whitesmoke;
+}
+#mainContent {
+  width: 80%;
+  min-height: 600px;
+  padding: 2%;
+  float: right;
+}
+.clear {
+  clear: both;
+}
+.float {
+  float: left;
+}
+.size_1-half {
+  font-size: 1.5em;
+}
+.size_2 {
+  font-size: 2em;
+}
+.size_2-half {
+  font-size: 2.5em;
+}
+.big-icon {
+  width: 50px;
+  height: 50px;
+}
