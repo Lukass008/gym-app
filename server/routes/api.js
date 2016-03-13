@@ -10,7 +10,7 @@ var User = require('../models/user.js');
 router.post('/register', function(req, res) {
   console.log('POST: /register');
   console.log(req.body);
-  var newUser = new User({ username: req.body.username, name: req.body.name, surname: req.body.surname});
+  var newUser = new User({ username: req.body.username, name: req.body.name, surname: req.body.surname, gender: req.body.gender});
 
   User.register(newUser,
     req.body.password, function(err, account) {
@@ -61,6 +61,28 @@ router.get('/logout', function(req, res) {
   });
 });
 
+
+
+router.post('/check_email', function(req, res){
+  console.log(req.body.username);
+  User.find({username: req.body.username}, function(err, docs){
+    if(err) return next(err);
+    if(docs.length){
+      console.log("Nieuq");
+      res.send(false);
+    }else{
+      console.log("unique");
+      res.send(true);
+    }
+  });
+
+
+});
+
+
+// UWAGA UWAGA UWAGA
+
+// WSZYSTKO PONIŻEJ WYMAGA AUTORYZACJI UŻYTKOWNIKA!!!!!!!
 
 router.use(function(req, res, next){
   var token = req.body.token || req.query.token || req.headers['x-access-token'];

@@ -97,14 +97,14 @@ myApp.factory('AuthService',
 
     }
 
-    function register(username, password, name, surname) {
+    function register(username, password, name, surname, gender) {
 
       // nowa instancja deferred
       var deferred = $q.defer();
 
       // żądanie post do serwera (zarejestruj)
       $http.post('/user/register',
-        {username: username, password: password, name: name, surname: surname})
+        {username: username, password: password, name: name, surname: surname, gender: gender})
         // sukces
         .success(function (data, status) {
           if(status === 200 && data.status){

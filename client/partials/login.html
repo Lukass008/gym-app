@@ -3,17 +3,21 @@
 
 <div class="loginForm" ng-controller="loginController">
 
-<form ng-submit="login()">
+<form name="myForm" ng-submit="login(myForm.$valid)" novalidate>
 
   <div class="input-field">
-    <input ng-model='loginForm.username' class="validate" placeholder="E-mail"><br>
+    <input ng-model="loginForm.username" name="username"  placeholder="E-mail" required><br>
+    <span class="error" ng-show="(submitted && myForm.username.$pristine) || (myForm.username.$touched && myForm.username.$error.required)">Podaj adres E-mail</span>
+
   </div>
 
   <div class="input-field">
-    <input type="password" ng-model='loginForm.password' class="" placeholder="Hasło"><br>
+    <input type="password" ng-model='loginForm.password' name="password" placeholder="Hasło" required><br>
+    <span class="error" ng-show="(submitted && myForm.password.$pristine) || (myForm.password.$touched && myForm.password.$error.required)">Podaj hasło</span>
+
   </div>
   <div class="error">{{errorMessage}}</div>
-  <div class="btn-div"><button type="submit" class="orange darken-4 waves-effect waves-light btn" ng-disabled="disabled">Zaloguj się</button></div>
+  <div class="btn-div"><button type="submit" class="orange darken-4 waves-effect waves-light btn" ng-click="submitted=true" ng-disable="loginForm.$invalid">Zaloguj się</button></div>
     <div class="nextToButton">Nie masz konta? <a ui-sref="start.register">Zarejestruj się</a>
     </div>
   <div class="clear"></div>

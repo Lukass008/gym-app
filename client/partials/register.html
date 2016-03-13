@@ -3,29 +3,50 @@
   <span>Stwórz swój profil sportowy, plan treningowy i zapisuj postępy</span>
 
   <div class="loginForm">
-  <form ng-submit="register(userForm.$valid)" novalidate>
+  <form name="myForm" ng-submit="register(myForm.$valid)" novalidate>
 
     <div class="input-field">
-      <input id="email" type="email" class="validate" name="username" ng-model="registerForm.username" placeholder="E-mail" required>
-      <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="">You name is required.</p>
+      <input id="email" type="email" ng-class="myForm.username.$touched && (myForm.username.$valid ? 'valid' : 'invalid')" name="username" ng-model="registerForm.username" placeholder="E-mail" required username-available>
+      <span ng-if="myForm.$pending.usernameExists">sprawdzam....</span>
+      <span class="error" ng-if="myForm.$error.usernameExists">Istnieje już konto o podanym adresie E-mail</span>
+      <span class="error" ng-show="!myForm.$error.usernameExists && ((submitted && myForm.username.$pristine) || (myForm.username.$touched && myForm.username.$error.required))">Pole E-mail jest wymagane</span>
+      <span class="error" ng-show="!myForm.$error.usernameExists && myForm.username.$dirty && myForm.username.$invalid && !myForm.username.$error.required">Podaj prawidłowy adres E-mail </span><br/>
     </div>
 
     <div class="input-field">
-      <input type="password" class="validate" name="password" ng-model="registerForm.password" placeholder="Hasło" required>
+      <input type="password" ng-class="myForm.password.$touched && (myForm.password.$valid ? 'valid' : 'invalid')" name="password" ng-model="registerForm.password" placeholder="Hasło" required ng-minlength="6">
+      <span class="error" ng-show="(submitted && myForm.password.$pristine) || (myForm.password.$touched && myForm.password.$error.required)">Pole hasło jest wymagane</span>
+      <span class="error" ng-show="myForm.password.$dirty && myForm.password.$error.minlength">Hasło musi zawierać conajmniej 6 znaków</span>
     </div>
 
     <div class="input-field">
-      <input type="text" class="validate" name="name" ng-model="registerForm.name" placeholder="Imię" ng-minlength="3" ng-maxlength="10" required>
+      <input type="text" ng-class="myForm.name.$touched && (myForm.name.$valid ? 'valid' : 'invalid')" name="name" ng-model="registerForm.name" placeholder="Imię" ng-minlength="3" ng-maxlength="15" required>
+      <span class="error" ng-show="(submitted && myForm.name.$pristine) || (myForm.name.$touched && myForm.name.$error.required)">Pole imię jest wymagane</span>
+      <span class="error" ng-show="myForm.name.$dirty && myForm.name.$error.minlength">Imię musi składać się z conajmniej 3 liter</span>
+
     </div>
 
     <div class="input-field">
-      <input type="text" class="validate" name="surname" ng-model="registerForm.surname" placeholder="Nazwisko" ng-minlength="3" ng-maxlength="10"  required>
-    </div>
+      <input type="text" ng-class="myForm.surname.$touched && (myForm.surname.$valid ? 'valid' : 'invalid')" name="surname" ng-model="registerForm.surname" placeholder="Nazwisko" ng-minlength="3" ng-maxlength="20"  required>
+      <span class="error" ng-show="(submitted && myForm.surname.$pristine) || (myForm.surname.$touched && myForm.surname.$error.required)">Pole nazwisko jest wymagane</span>
+      <span class="error" ng-show="myForm.surname.$dirty && myForm.surname.$error.minlength">Nazwisko musi składać się z conajmniej 3 liter</span>
+    </div><br>
+
+    <p>
+      <label>Płeć</label><br>
+      <input name="gender" type="radio" ng-model="registerForm.gender" value="woman" id="test1" ng-required="!registerForm.gender" >
+      <label for="test1">Kobieta</label>&nbsp;&nbsp;&nbsp;
+
+      <input name="gender" type="radio" ng-model="registerForm.gender" value="man" id="test2" ng-required="!registerForm.gender">
+      <label for="test2">Mężczyzna</label><br>
+      <span class="error" ng-show="(submitted && myForm.gender.$error.required)">Wybierz swoją płeć</span>
+
+    </p><br>
 
 
     {{errorMessage}}
     <div class="btn-div">
-      <button type="submit" class="orange darken-4 waves-effect waves-light btn" ng-disabled="disabled">Register</button>
+      <button class="orange darken-4 waves-effect waves-light btn" ng-click="submitted=true" ng-disable="myForm.$invalid">Register</button>
     </div>
   </form>
 

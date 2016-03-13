@@ -131,6 +131,9 @@
 .float {
   float: left;
 }
+.error {
+  color: red;
+}
 .size_1-half {
   font-size: 1.5em;
 }
